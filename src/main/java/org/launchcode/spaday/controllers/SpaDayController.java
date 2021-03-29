@@ -57,17 +57,18 @@ public class SpaDayController {
                 "<option value = 'dry'>Dry</option>" +
                 "</select><br>" +
                 "Manicure or Pedicure? <br>" +
-                "<select name = 'manipedi'>" +
-                "<option value = 'manicure'>Manicure</option>" +
-                "<option value = 'pedicure'>Pedicure</option>" +
-                "</select><br>" +
+                "<input type='checkbox' id='manicure' name='manicure' value='manicure'>" +
+                "<label for='manicure'>Manicure</label><br>" +
+                "<input type='checkbox' id='pedicure' name='pedicure' value='pedicure'>" +
+                "<label for='pedicure'>Pedicure</label><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
         return html;
     }
 
     @PostMapping(value="")
-    public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam String manipedi, Model model) {
+    public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam(required = false) String manicure,
+                          @RequestParam(required = false) String pedicure, Model model) {
 
         ArrayList<String> facials = new ArrayList<String>();
         facials.add("Microdermabrasion");
@@ -81,6 +82,12 @@ public class SpaDayController {
                 appropriateFacials.add(facials.get(i));
             }
         }
+
+        model.addAttribute("name", name);
+        model.addAttribute("skintype", skintype);
+        model.addAttribute("manicure", manicure);
+        model.addAttribute("pedicure", pedicure);
+        model.addAttribute("appropriateFacials", appropriateFacials);
 
         return "menu";
     }
