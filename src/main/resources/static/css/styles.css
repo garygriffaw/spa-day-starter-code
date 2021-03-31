@@ -12,36 +12,15 @@ div {
 
 h1 {
     margin: auto;
-        width: 50%;
-        padding: 10px;
-        text-align: center;
-        background-color: white;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
+    background-color: white;
 }
 
 table {
     margin: auto;
-            width: 50%;
-            padding: 10px;
-            text-align: center;
-}
-
-.nailpolishsquare {
-    width: 50px;
-    height: 50px;
-    display: inline-block;
-}
-
-.nailpolish1 {
-    background-color: maroon;
-    color: white;
-}
-
-.nailpolish2 {
-    background-color: red;
-    color: white;
-}
-
-.nailpolish3 {
-    background-color: rosybrown;
-    color: white;
+    width: 50%;
+    padding: 10px;
+    text-align: center;
 }
